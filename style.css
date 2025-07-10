@@ -1,7 +1,7 @@
 body {
-  background-color: #321c1c;
-  color: white;
-  font-family: sans-serif;
+  background-color: white;
+  color: black;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
   margin-top: 100px;
   display: flex;
@@ -22,7 +22,7 @@ h1 {
 
 .subtitle {
   font-size: 16px;
-  color: #aaa;
+  color: black;
 }
 
 #clock {
@@ -38,5 +38,5 @@ h1 {
 
 #date {
   font-size: 16px;
-  color: #ccc;
+  color: black;
 }
