@@ -1,5 +1,5 @@
 # Digital_Clock
-## Date:
+## Date: 10/07/2025
 ## Objective:
 To create a live digital clock using HTML, CSS, and JavaScript that updates every second and displays the current time in HH:MM:SS format — a feature commonly used in dashboards and admin panels.
 
@@ -41,7 +41,100 @@ Animate the colon (:) blinking every second.
 
 Add a “Tweet this” button with a share link.
 ## HTML Code:
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>TimeTrack</h1>
+    <p class="subtitle">Live Digital Clock</p>
+    <div class="clock-container">
+    <div id="clock">--:--:--</div>
+    <p id="ampm">--</p>
+    <p id="date">--</p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+```
 ## CSS Code:
+```
+body {
+  background-color: white;
+  color: black;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.clock-container{
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    width: fit-content;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: black;
+}
+
+#clock {
+  font-size: 48px;
+  margin-top: 30px;
+  letter-spacing: 2px;
+}
+
+#ampm {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+#date {
+  font-size: 16px;
+  color: black;
+}
+```
+
+## JS : 
+```
+function updateClock() {
+  const now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+
+  let ampm = hours >= 12 ? 'PM' : 'AM';
+  hours = hours % 12 || 12;
+
+  hours = String(hours).padStart(2, '0');
+  minutes = String(minutes).padStart(2, '0');
+  seconds = String(seconds).padStart(2, '0');
+
+  const timeString = `${hours}:${minutes}:${seconds}`;
+  const dateString = now.toDateString();
+
+  document.getElementById('clock').innerText = timeString;
+  document.getElementById('ampm').innerText = ampm;
+  document.getElementById('date').innerText = dateString;
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+```
 ## Output:
 
 ## Result:
