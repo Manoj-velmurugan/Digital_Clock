@@ -158,7 +158,8 @@ setInterval(updateClock, 1000);
 
 ```
 ## Output:
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b763a1e6-36fd-4ece-a800-76679fbbf2aa" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/bb7abd6a-cdf2-4deb-a5e1-d153699a8aa3" />
+
 
 ## Result:
 A live digital clock using HTML, CSS, and JavaScript that updates every second and displays the current time in HH:MM:SS format — a feature commonly used in dashboards and admin panels is created successfully.
