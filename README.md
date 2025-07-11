@@ -57,6 +57,7 @@ Add a “Tweet this” button with a share link.
     <div id="clock">--:--:--</div>
     <p id="ampm">--</p>
     <p id="date">--</p>
+    <button onclick="toggle24()">Change to 24 hour format</button>
     </div>
     
     <script src="script.js"></script>
@@ -107,18 +108,33 @@ h1 {
   font-size: 16px;
   color: black;
 }
+
+button{
+  width: fit-content;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
 ```
 
 ## JS : 
 ```
+let is24hourformat = false;
+
 function updateClock() {
   const now = new Date();
   let hours = now.getHours();
   let minutes = now.getMinutes();
   let seconds = now.getSeconds();
 
-  let ampm = hours >= 12 ? 'PM' : 'AM';
-  hours = hours % 12 || 12;
+  let ampm = "";
+  if (!is24hourformat) {
+    ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+  }
 
   hours = String(hours).padStart(2, '0');
   minutes = String(minutes).padStart(2, '0');
@@ -128,12 +144,18 @@ function updateClock() {
   const dateString = now.toDateString();
 
   document.getElementById('clock').innerText = timeString;
-  document.getElementById('ampm').innerText = ampm;
+  document.getElementById('ampm').innerText = is24hourformat ? '' : ampm;
   document.getElementById('date').innerText = dateString;
+}
+
+function toggle24() {
+  is24hourformat = !is24hourformat;
+  updateClock();
 }
 
 updateClock();
 setInterval(updateClock, 1000);
+
 ```
 ## Output:
 <img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b763a1e6-36fd-4ece-a800-76679fbbf2aa" />
